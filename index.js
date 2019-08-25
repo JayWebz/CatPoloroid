@@ -39,14 +39,29 @@
         const DOMstrings = {
           photoPile: '.photo-pile',
           buttonInput: '.button__input',
-          buttonBackground: '.button__background',
-          buttonHide: 'button__hide',
-          buttonAnimate: 'button__animate'
+          buttonShutter1: '.button__shutter--1',
+          buttonShutter2: '.button__shutter--2',
+          buttonShutter3: '.button__shutter--3',
+          buttonShutter4: '.button__shutter--4',
+          buttonShutter5: '.button__shutter--5',
+          buttonShutter6: '.button__shutter--6',
+          buttonShutter7: '.button__shutter--7',
+          buttonShutter8: '.button__shutter--8',
+          buttonShutterAnimate1: 'button__shutter-animate--1',
+          buttonShutterAnimate2: 'button__shutter-animate--2',
+          buttonShutterAnimate3: 'button__shutter-animate--3',
+          buttonShutterAnimate4: 'button__shutter-animate--4',
+          buttonShutterAnimate5: 'button__shutter-animate--5',
+          buttonShutterAnimate6: 'button__shutter-animate--6',
+          buttonShutterAnimate7: 'button__shutter-animate--7',
+          buttonShutterAnimate8: 'button__shutter-animate--8',
         };
 
         const pullFact = function() {
+          
+        try {
           let newFactId;
-
+          
           function chooseFactFromList() {
             // Pull new fact from list
             newFactId = Math.ceil(Math.random() * data.facts.factArray.length); 
@@ -58,6 +73,11 @@
 
           chooseFactFromList();
           return data.facts.factArray[newFactId].text;
+        } catch(error) {
+          console.log(error);
+          return "Unlike humans, cats cannot detect sweetness–which likely explains why they are not drawn to it at all.";
+        }
+          
         }
 
         const setZindex = function() {
@@ -119,11 +139,23 @@
         const transitionPhoto = (function() {
           // Add/Remove CSS classes for trainsition
           const DOM = UICtrl.getDOMstrings();
-          document.querySelector(DOM.buttonInput).classList.add(DOM.buttonHide);
-          document.querySelector(DOM.buttonBackground).classList.add(DOM.buttonAnimate);
+          document.querySelector(DOM.buttonShutter1).classList.add(DOM.buttonShutterAnimate1);
+          document.querySelector(DOM.buttonShutter2).classList.add(DOM.buttonShutterAnimate2);
+          document.querySelector(DOM.buttonShutter3).classList.add(DOM.buttonShutterAnimate3);
+          document.querySelector(DOM.buttonShutter4).classList.add(DOM.buttonShutterAnimate4);
+          document.querySelector(DOM.buttonShutter5).classList.add(DOM.buttonShutterAnimate5);
+          document.querySelector(DOM.buttonShutter6).classList.add(DOM.buttonShutterAnimate6);
+          document.querySelector(DOM.buttonShutter7).classList.add(DOM.buttonShutterAnimate7);
+          document.querySelector(DOM.buttonShutter8).classList.add(DOM.buttonShutterAnimate8);
             setTimeout(function() {
-              document.querySelector(DOM.buttonBackground).classList.remove(DOM.buttonAnimate);
-              document.querySelector(DOM.buttonInput).classList.remove(DOM.buttonHide);
+              document.querySelector(DOM.buttonShutter1).classList.remove(DOM.buttonShutterAnimate1);
+              document.querySelector(DOM.buttonShutter2).classList.remove(DOM.buttonShutterAnimate2);
+              document.querySelector(DOM.buttonShutter3).classList.remove(DOM.buttonShutterAnimate3);
+              document.querySelector(DOM.buttonShutter4).classList.remove(DOM.buttonShutterAnimate4);
+              document.querySelector(DOM.buttonShutter5).classList.remove(DOM.buttonShutterAnimate5);
+              document.querySelector(DOM.buttonShutter6).classList.remove(DOM.buttonShutterAnimate6);
+              document.querySelector(DOM.buttonShutter7).classList.remove(DOM.buttonShutterAnimate7);
+              document.querySelector(DOM.buttonShutter8).classList.remove(DOM.buttonShutterAnimate8);
             }, 4000);
         })
 
@@ -136,3 +168,10 @@
       })(UIController);
 
       document.querySelector(".button").addEventListener('click', controller.init);
+      // var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      // document.querySelector('body').style.height = h;
+
+
+
+
