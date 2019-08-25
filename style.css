@@ -1,0 +1,234 @@
+:root {
+  --poloroid-size: 352px;
+  --poloroid-size-mobile: 280px;
+  --button-height: 40px;
+  --button-width: 200px;
+  --background-scale-min: 1;
+  --background-scale-max: 50;
+}
+
+body {
+  background: teal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Permanent Marker', cursive;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 80%;
+  }   
+}
+
+.header {
+  margin-top: -30px;
+  text-align: center;
+}
+
+.header__title {
+  letter-spacing: 11.3px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
+.header__text {
+  margin: 0 0 20px;
+  letter-spacing: 2px;
+}
+
+.photo-pile {
+  position: relative;
+  /*5:6 aspect ratio*/
+  width: 382px;
+  height: 460px;
+}
+
+@media screen and (max-width: 400px) {
+  .photo-pile {
+    width: 300px;
+    height: 361px;
+  }
+}
+
+.poloroid {
+  width: 100%;
+  background-color: #FFFFF0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1px;
+  position: absolute;
+  border: 1px solid #9a9b9c;
+  -webkit-box-shadow: 0 2px 5px #333;
+          box-shadow: 0 2px 5px #333;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  top: 20px;
+  left: 0;
+}
+
+.poloroid__picture {
+  margin: 0 0 15px;
+  top: 0;
+  left: 0;
+  height: var(--poloroid-size);
+  background-color: #000;
+  max-width: var(--poloroid-size);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 400px) {
+  .poloroid__picture {
+    height: var(--poloroid-size-mobile);
+    max-width: var(--poloroid-size-mobile);
+  }
+}
+
+.poloroid__picture-img {
+  height: 100%;
+  border: 1px solid #9a9b9c;
+}
+
+.button {
+  position: relative;
+  height: var(--button-height);
+  width: var(--button-width);
+}
+
+.button__input {
+  position: relative;
+  height: var(--button-height);
+  width: var(--button-width);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  background-color: #f0c932;
+  margin-bottom: 50px;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+.button__input:hover {
+  -webkit-box-shadow: 0 5px #d0a211;
+          box-shadow: 0 5px #d0a211;
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+@-webkit-keyframes fillScreen {
+  0% { -webkit-transform: scale(var(--background-scale-min)); transform: scale(var(--background-scale-min)); }
+  40% { -webkit-transform: scale(var(--background-scale-max)); transform: scale(var(--background-scale-max)); }
+  60% { -webkit-transform: scale(var(--background-scale-max)); transform: scale(var(--background-scale-max)); }
+  100% { -webkit-transform: scale(var(--background-scale-min)); transform: scale(var(--background-scale-min)); }
+}
+
+@keyframes fillScreen {
+  0% { -webkit-transform: scale(var(--background-scale-min)); transform: scale(var(--background-scale-min)); }
+  40% { -webkit-transform: scale(var(--background-scale-max)); transform: scale(var(--background-scale-max)); }
+  60% { -webkit-transform: scale(var(--background-scale-max)); transform: scale(var(--background-scale-max)); }
+  100% { -webkit-transform: scale(var(--background-scale-min)); transform: scale(var(--background-scale-min)); }
+}
+
+@-webkit-keyframes fadeOutIn {
+  0% { opacity: 1; }
+  30% { opacity: 0; }
+  70% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOutIn {
+  0% { opacity: 1; }
+  30% { opacity: 0; }
+  70% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.button__input:active {
+  -webkit-transform: translateY(-2.5px);
+      -ms-transform: translateY(-2.5px);
+          transform: translateY(-2.5px);
+  -webkit-box-shadow: 0 2.5px #d0a211;
+          box-shadow: 0 2.5px #d0a211;
+}
+
+.button__background {
+  height: var(--button-height);
+  width: var(--button-height);
+  border-radius: 50%;
+  position: relative;
+  margin: -90px auto 0;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  background-image: -o-radial-gradient(#6e92c7, #2c5a93, #154488);
+  background-image: radial-gradient(#6e92c7, #2c5a93, #154488);
+  z-index: 1000;
+  -webkit-transition: -webkit-transform 1.25s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: -webkit-transform 1.25s cubic-bezier(0.86, 0, 0.07, 1);
+  -o-transition: transform 1.25s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 1.25s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 1.25s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 1.25s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.button__animate {
+  -webkit-animation-name: fillScreen;
+          animation-name: fillScreen;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.button__hide {
+  -webkit-animation-name: fadeOutIn;
+          animation-name: fadeOutIn;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
